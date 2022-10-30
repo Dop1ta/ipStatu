@@ -1,32 +1,31 @@
 #include<iostream>
 #include<fstream>
-#include<string>
 #include<thread>
 
 using namespace std;
 
-void ip_part1();
-void ip_part2();
+void statusIP(string linea, char *nPackage, int i);
 
 int main(int argc, char *argv[]) {
 
-	string ping = "ping ";
-	string ipS = argv[1];
+	int i = 0;
 
-	cout << ipS << endl;
-	ifstream ip(ipS.c_str());
+	ifstream ip(argv[1]);
 	string linea;
+	while(getline(ip, linea)){
+		statusIP(linea, argv[2], i);
+		i += 1;
+	}
 
-	getline(ip, linea);
-	cout << endl << linea << endl;
-	linea = ping + linea + " -c " + argv[2];
-
-	system(linea.c_str());
-
+	// system(("ping "+openFile(argv[1])+" -c "+argv[2] + " > data.txt").c_str());
+	// system(("ping "+openFile(argv[1])+" -c "+argv[2] + " > data2.txt").c_str());
 	return 0;
 
 }
 
-void ip_part1() {
+void statusIP(string linea, char *nPackage, int i){
 
+	string pa = nPackage;
+
+	system(("ping " + linea + " -c " + pa + " > data" +to_string(i)+".txt").c_str());
 }

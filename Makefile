@@ -1,13 +1,13 @@
 #VARIABLES
-OBJS = ipInfo.o # $(OBJS)
-BINARY = ipInfo # $(BINARY)
+ARCH = "archivo_listado_ips.txt" # $(OBJS)
+BINARY = 2 # $(BINARY)
 
 
 all: ipMain
 
 ipMain: ipInfo.o
 	g++ -o ipInfo ipInfo.o
-	./ipInfo $(foo) $(foo2)
+	./ipInfo $(ARCH) $(BINARY)
 
 ipInfo.o: ipInfo.cpp
 	@g++ -c ipInfo.cpp -lpthread 
