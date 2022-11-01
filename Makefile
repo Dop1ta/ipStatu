@@ -13,4 +13,4 @@ ipInfo.o: ipInfo.cpp
 	@g++ -c ipInfo.cpp -lpthread 
 
 clean:
-	rm -f ipInfo *.o
+	rm -f ipInfo *.o data0.txt data1.txt data2.txt data3.txt data4.txt
