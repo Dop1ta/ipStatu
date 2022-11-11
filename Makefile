@@ -5,12 +5,12 @@ BINARY = 2 # $(BINARY)
 
 all: ipMain
 
-ipMain: ipInfo.o
-	g++ -o ipInfo ipInfo.o
-	./ipInfo $(ARCH) $(BINARY)
+ipMain: ipInfoThread.o
+	g++ ipInfoThread.o -o ipInfoThread -lpthread  
+	./ipInfoThread $(ARCH) $(BINARY)
 
-ipInfo.o: ipInfo.cpp
-	@g++ -c ipInfo.cpp -lpthread 
+ipInfoThread.o: ipInfoThread.cpp
+	@g++ -c ipInfoThread.cpp 
 
 clean:
-	rm -f ipInfo *.o data0.txt data1.txt data2.txt data3.txt data4.txt
+	rm -f ipInfoThread *.o data0.txt data1.txt data2.txt data3.txt data4.txt

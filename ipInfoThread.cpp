@@ -20,15 +20,16 @@ struct IPINFO
 int main(int argc, char *argv[])
 {
 
-  // if( argc <= 2 ){
-  //   cout << "Se te olvidaron los argumentos" << endl;
-  //   return 0;
-  // }
+  if (argc <= 2)
+  {
+    cout << "Se te olvidaron los argumentos" << endl;
+    return 0;
+  }
 
   pthread_mutex_init(&mutex, NULL);
   int lineText = 0;
 
-  ifstream ip("archivo_listado_ips.txt");
+  ifstream ip(argv[1]);
   string linea;
 
   while (getline(ip, linea))
@@ -46,11 +47,9 @@ int main(int argc, char *argv[])
   while (getline(ip2, linea2))
   {
     data[cont].nIp = linea2;
-    data[cont].nPackege = 2;
+    data[cont].nPackege = atoi(argv[2]);
 
     threads[cont] = thread(dataPing, &data[cont]);
-
-    // cout << data[cont].nIp << "   " << data[cont].nPackege << endl;
 
     cont++;
   }
@@ -61,6 +60,9 @@ int main(int argc, char *argv[])
   ip.close();
 
   // IMPRIMIR DATOS DE LA IP
+
+  system("make clean");
+  system("clear");
 
   cout << "IP               Trans.      Rec.     Perd.      Estado" << endl;
   cout << "=======================================================" << endl;
