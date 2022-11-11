@@ -1,0 +1,1 @@
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms

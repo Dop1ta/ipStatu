@@ -1,0 +1,1 @@
+2 packets transmitted, 0 received, +1 errors, 100% packet loss, time 1038ms

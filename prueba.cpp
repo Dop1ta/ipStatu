@@ -9,7 +9,7 @@ void buscarLetras (char *str) {
   char c[2];
   int cnt = 0;
 
-  int stream = open ("palabras.txt", O_RDONLY);
+  int stream = open ("archivo_listado_ips.txt", O_RDONLY);
 
   if (stream == -1) {
     cout << "Error al abrir archivo" << std::endl;
